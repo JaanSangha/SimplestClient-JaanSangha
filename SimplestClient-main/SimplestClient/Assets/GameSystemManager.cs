@@ -68,15 +68,15 @@ public class GameSystemManager : MonoBehaviour
         Text[] allTexts = UnityEngine.Object.FindObjectsOfType<Text>();
         foreach (Text go in allTexts)
         {
-            if (go.name == "ChatBoxOne")
+            if (go.name == "ChatTextOne")
             {
                 ChatBoxOne = go;
             }
-            else if (go.name == "ChatBoxTwo")
+            else if (go.name == "ChatTextTwo")
             {
                 ChatBoxTwo = go;
             }
-            else if (go.name == "ChatBoxThree")
+            else if (go.name == "ChatTextThree")
             {
                 ChatBoxThree = go;
             }
@@ -173,14 +173,53 @@ public class GameSystemManager : MonoBehaviour
         //ChangeState(gameStates.WaitingInQueueForOtherPlayer);
     }
 
-    public void QuickChatOne()
+    public void QuickChatOneRecieved()
     {
         ChatBoxOne.text = ChatBoxTwo.text;
         ChatBoxTwo.text = ChatBoxThree.text;
-
-        ChatBoxThree.text = ("Goodluck!");
-
-
+        ChatBoxThree.text = ("Opponent: Good Luck!");
+    }
+    public void QuickChatTwoRecieved()
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("Opponent: Close One!");
+    }
+    public void QuickChatThreeRecieved()
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("Opponent: Oh No!");
+    }
+    public void QuickChatFourRecieved()
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("Opponent: Good Game!");
+    }
+    public void QuickChatOneSent()
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("You: Good Luck!");
+    }
+    public void QuickChatTwoSent()
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("You: Close One!");
+    }
+    public void QuickChatThreeSent()
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("You: Oh No!");
+    }
+    public void QuickChatFourSent()
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("You: Good Game!");
     }
 }
 

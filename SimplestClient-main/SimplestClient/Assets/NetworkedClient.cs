@@ -40,6 +40,18 @@ public class NetworkedClient : MonoBehaviour
         {
             SendMessageToHost(ClientToServerSignifier.QuickChatOne + "");
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            SendMessageToHost(ClientToServerSignifier.QuickChatTwo + "");
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SendMessageToHost(ClientToServerSignifier.QuickChatThree + "");
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SendMessageToHost(ClientToServerSignifier.QuickChatFour + "");
+        }
 
         UpdateNetworkConnection();
     }
@@ -137,9 +149,37 @@ public class NetworkedClient : MonoBehaviour
         {
             Debug.Log("your opponent played");
         }
-        else if (Signifier == ServerToClientSignifier.QuickChatOne)
+        else if (Signifier == ServerToClientSignifier.QuickChatOneRecieved)
         {
-            Debug.Log("your opponent played");
+            gameSystemManager.GetComponent<GameSystemManager>().QuickChatOneRecieved();
+        }
+        else if (Signifier == ServerToClientSignifier.QuickChatTwoRecieved)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().QuickChatTwoRecieved();
+        }
+        else if (Signifier == ServerToClientSignifier.QuickChatThreeRecieved)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().QuickChatThreeRecieved();
+        }
+        else if (Signifier == ServerToClientSignifier.QuickChatFourRecieved)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().QuickChatFourRecieved();
+        }
+        else if (Signifier == ServerToClientSignifier.QuickChatOneSent)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().QuickChatOneSent();
+        }
+        else if (Signifier == ServerToClientSignifier.QuickChatTwoSent)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().QuickChatTwoSent();
+        }
+        else if (Signifier == ServerToClientSignifier.QuickChatThreeSent)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().QuickChatThreeSent();
+        }
+        else if (Signifier == ServerToClientSignifier.QuickChatFourSent)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().QuickChatFourSent();
         }
     }
 
@@ -154,8 +194,10 @@ public static class ClientToServerSignifier
     public const int Login = 2;
     public const int JoinQueueForGame = 3;
     public const int TicTacToeSomethingPlay = 4;
-    public const int QuickChatOne = 7;
-    public const int QuickChatTwo = 8;
+    public const int QuickChatOne = 5;
+    public const int QuickChatTwo = 6;
+    public const int QuickChatThree = 7;
+    public const int QuickChatFour = 8;
 }
 public static class ServerToClientSignifier
 {
@@ -165,6 +207,12 @@ public static class ServerToClientSignifier
     public const int AccountCreationFailed = 4;
     public const int GameStart = 5;
     public const int OpponentPlay = 6;
-    public const int QuickChatOne = 7;
-    public const int QuickChatTwo = 8;
+    public const int QuickChatOneRecieved = 7;
+    public const int QuickChatTwoRecieved = 8;
+    public const int QuickChatThreeRecieved = 9;
+    public const int QuickChatFourRecieved = 10;
+    public const int QuickChatOneSent = 11;
+    public const int QuickChatTwoSent = 12;
+    public const int QuickChatThreeSent = 13;
+    public const int QuickChatFourSent = 14;
 }
