@@ -17,10 +17,20 @@ public class NetworkedClient : MonoBehaviour
     bool isConnected = false;
     int ourClientID;
 
+    GameObject gameSystemManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        Connect();
+        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        foreach (GameObject go in allObjects)
+        {
+            if(go.GetComponent<GameSystemManager>() != null)
+            {
+                gameSystemManager = go;
+            }
+        }
+            Connect();
     }
 
     // Update is called once per frame
@@ -76,7 +86,7 @@ public class NetworkedClient : MonoBehaviour
             hostID = NetworkTransport.AddHost(topology, 0);
             Debug.Log("Socket open.  Host ID = " + hostID);
 
-            connectionID = NetworkTransport.Connect(hostID, "192.168.2.15", socketPort, 0, out error); // server is local on network
+            connectionID = NetworkTransport.Connect(hostID, "192.168.0.23", socketPort, 0, out error); // server is local on network
 
             if (error == 0)
             {
@@ -107,10 +117,20 @@ public class NetworkedClient : MonoBehaviour
         if (Signifier == ServerToClientSignifier.AccountCreationComplete)
         {
             Debug.Log("Account creation complete");
+            gameSystemManager.GetComponent<GameSystemManager>().ChangeState(gameStates.MainMenu);
         }
         else if (Signifier == ServerToClientSignifier.LoginComplete)
         {
             Debug.Log("Login complete");
+            gameSystemManager.GetComponent<GameSystemManager>().ChangeState(gameStates.MainMenu);
+        }
+        else if (Signifier == ServerToClientSignifier.GameStart)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().ChangeState(gameStates.TicTacToe);
+        }
+        else if (Signifier == ServerToClientSignifier.OpponentPlay)
+        {
+            Debug.Log("your opponent played");
         }
     }
 
@@ -124,6 +144,7 @@ public static class ClientToServerSignifier
     public const int CreateAccount = 1;
     public const int Login = 2;
     public const int JoinQueueForGame = 3;
+    public const int TicTacToeSomethingPlay = 4;
 }
 public static class ServerToClientSignifier
 {
@@ -132,4 +153,5 @@ public static class ServerToClientSignifier
     public const int AccountCreationComplete = 3;
     public const int AccountCreationFailed = 4;
     public const int GameStart = 5;
+    public const int OpponentPlay = 6;
 }
