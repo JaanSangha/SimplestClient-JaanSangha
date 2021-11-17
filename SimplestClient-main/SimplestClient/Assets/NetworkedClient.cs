@@ -36,6 +36,11 @@ public class NetworkedClient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SendMessageToHost(ClientToServerSignifier.QuickChatOne + "");
+        }
+
         UpdateNetworkConnection();
     }
 
@@ -132,6 +137,10 @@ public class NetworkedClient : MonoBehaviour
         {
             Debug.Log("your opponent played");
         }
+        else if (Signifier == ServerToClientSignifier.QuickChatOne)
+        {
+            Debug.Log("your opponent played");
+        }
     }
 
     public bool IsConnected()
@@ -145,6 +154,8 @@ public static class ClientToServerSignifier
     public const int Login = 2;
     public const int JoinQueueForGame = 3;
     public const int TicTacToeSomethingPlay = 4;
+    public const int QuickChatOne = 7;
+    public const int QuickChatTwo = 8;
 }
 public static class ServerToClientSignifier
 {
@@ -154,4 +165,6 @@ public static class ServerToClientSignifier
     public const int AccountCreationFailed = 4;
     public const int GameStart = 5;
     public const int OpponentPlay = 6;
+    public const int QuickChatOne = 7;
+    public const int QuickChatTwo = 8;
 }

@@ -8,7 +8,8 @@ public class GameSystemManager : MonoBehaviour
     GameObject UsernameInputField, PasswordInputField, UsernameText, PasswordText, SubmitButton, LoginToggle, CreateToggle;
     GameObject NetworkedClient;
     GameObject JoinGameRoomButton;
-    GameObject TicTacToeSquareButton;
+    GameObject TicTacToeSquareULButton;
+    Text ChatBoxOne, ChatBoxTwo, ChatBoxThree;
    // static GameObject instance;
 
     // Start is called before the first frame update
@@ -55,16 +56,33 @@ public class GameSystemManager : MonoBehaviour
             {
                 JoinGameRoomButton = go;
             }
-            else if (go.name == "TicTacToeSquareButton")
+            else if (go.name == "TicTacToeSquareULButton")
             {
-                TicTacToeSquareButton = go;
+                TicTacToeSquareULButton = go;
             }
         }
+        Text[] allTexts = UnityEngine.Object.FindObjectsOfType<Text>();
+        foreach (Text go in allTexts)
+        {
+            if (go.name == "ChatBoxOne")
+            {
+                ChatBoxOne = go;
+            }
+            else if (go.name == "ChatBoxTwo")
+            {
+                ChatBoxTwo = go;
+            }
+            else if (go.name == "ChatBoxThree")
+            {
+                ChatBoxThree = go;
+            }
+        }
+
         SubmitButton.GetComponent<Button>().onClick.AddListener(SubmitButtonPressed);
         LoginToggle.GetComponent<Toggle>().onValueChanged.AddListener(LoginToggleChanged);
         CreateToggle.GetComponent<Toggle>().onValueChanged.AddListener(CreateToggleChanged);
         JoinGameRoomButton.GetComponent<Button>().onClick.AddListener(JoinGameRoomButtonPressed);
-        TicTacToeSquareButton.GetComponent<Button>().onClick.AddListener(TicTacToeSquareButtonPressed);
+        TicTacToeSquareULButton.GetComponent<Button>().onClick.AddListener(TicTacToeSquareButtonPressed);
 
         ChangeState(gameStates.LoginMenu);
     }
@@ -110,7 +128,7 @@ public class GameSystemManager : MonoBehaviour
         SubmitButton.SetActive(false);
         LoginToggle.SetActive(false);
         CreateToggle.SetActive(false);
-        TicTacToeSquareButton.SetActive(false);
+        TicTacToeSquareULButton.SetActive(false);
 
         if (newState == gameStates.LoginMenu)
         {
@@ -133,7 +151,7 @@ public class GameSystemManager : MonoBehaviour
         else if (newState == gameStates.TicTacToe)
         {
             //set tictactoe game stuffs
-            TicTacToeSquareButton.SetActive(true);
+            TicTacToeSquareULButton.SetActive(true);
         }
     }
 
@@ -147,6 +165,16 @@ public class GameSystemManager : MonoBehaviour
     {
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.TicTacToeSomethingPlay + "");
         //ChangeState(gameStates.WaitingInQueueForOtherPlayer);
+    }
+
+    public void QuickChatOne()
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+
+        ChatBoxThree.text = ("Goodluck!");
+
+
     }
 }
 
