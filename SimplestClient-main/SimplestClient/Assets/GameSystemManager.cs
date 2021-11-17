@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameSystemManager : MonoBehaviour
 {
-    GameObject UsernameInputField, PasswordInputField, UsernameText, PasswordText, SubmitButton, LoginToggle, CreateToggle;
+    GameObject UsernameInputField, PasswordInputField, UsernameText, PasswordText, SubmitButton, LoginToggle, CreateToggle, GameScreen;
     GameObject NetworkedClient;
     GameObject JoinGameRoomButton;
     GameObject TicTacToeSquareULButton;
@@ -59,6 +59,10 @@ public class GameSystemManager : MonoBehaviour
             else if (go.name == "TicTacToeSquareULButton")
             {
                 TicTacToeSquareULButton = go;
+            }
+            else if (go.name == "GameScreen")
+            {
+                GameScreen = go;
             }
         }
         Text[] allTexts = UnityEngine.Object.FindObjectsOfType<Text>();
@@ -129,6 +133,7 @@ public class GameSystemManager : MonoBehaviour
         LoginToggle.SetActive(false);
         CreateToggle.SetActive(false);
         TicTacToeSquareULButton.SetActive(false);
+        GameScreen.SetActive(false);
 
         if (newState == gameStates.LoginMenu)
         {
@@ -152,6 +157,7 @@ public class GameSystemManager : MonoBehaviour
         {
             //set tictactoe game stuffs
             TicTacToeSquareULButton.SetActive(true);
+            GameScreen.SetActive(true);
         }
     }
 
