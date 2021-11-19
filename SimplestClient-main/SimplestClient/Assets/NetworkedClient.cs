@@ -145,6 +145,10 @@ public class NetworkedClient : MonoBehaviour
         {
             gameSystemManager.GetComponent<GameSystemManager>().ChangeState(gameStates.TicTacToe);
         }
+        else if (Signifier == ServerToClientSignifier.ObserveStart)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().ChangeState(gameStates.GameObserver);
+        }
         else if (Signifier == ServerToClientSignifier.OpponentPlay)
         {
             Debug.Log("your opponent played");
@@ -198,6 +202,7 @@ public static class ClientToServerSignifier
     public const int QuickChatTwo = 6;
     public const int QuickChatThree = 7;
     public const int QuickChatFour = 8;
+    public const int JoinQueueToObserve = 9;
 }
 public static class ServerToClientSignifier
 {
@@ -215,4 +220,5 @@ public static class ServerToClientSignifier
     public const int QuickChatTwoSent = 12;
     public const int QuickChatThreeSent = 13;
     public const int QuickChatFourSent = 14;
+    public const int ObserveStart = 15;
 }

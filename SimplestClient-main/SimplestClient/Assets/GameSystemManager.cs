@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameSystemManager : MonoBehaviour
 {
-    GameObject UsernameInputField, PasswordInputField, UsernameText, PasswordText, SubmitButton, LoginToggle, CreateToggle, GameScreen;
+    GameObject UsernameInputField, PasswordInputField, UsernameText, PasswordText, SubmitButton, LoginToggle, CreateToggle, GameScreen, ObserverText;
     GameObject NetworkedClient;
     GameObject JoinGameRoomButton;
     GameObject TicTacToeSquareULButton;
@@ -63,6 +63,10 @@ public class GameSystemManager : MonoBehaviour
             else if (go.name == "GameScreen")
             {
                 GameScreen = go;
+            }
+            else if (go.name == "ObserverText")
+            {
+                ObserverText = go;
             }
         }
         Text[] allTexts = UnityEngine.Object.FindObjectsOfType<Text>();
@@ -134,6 +138,7 @@ public class GameSystemManager : MonoBehaviour
         CreateToggle.SetActive(false);
         TicTacToeSquareULButton.SetActive(false);
         GameScreen.SetActive(false);
+        ObserverText.SetActive(false);
 
         if (newState == gameStates.LoginMenu)
         {
@@ -158,6 +163,12 @@ public class GameSystemManager : MonoBehaviour
             //set tictactoe game stuffs
             TicTacToeSquareULButton.SetActive(true);
             GameScreen.SetActive(true);
+        }
+        else if (newState == gameStates.GameObserver)
+        {
+            //set tictactoe game stuffs
+            GameScreen.SetActive(true);
+            ObserverText.SetActive(true);
         }
     }
 
@@ -232,5 +243,7 @@ static public class gameStates
     public const int WaitingInQueueForOtherPlayer = 3;
 
     public const int TicTacToe = 4;
+
+    public const int GameObserver = 5;
 }
 
