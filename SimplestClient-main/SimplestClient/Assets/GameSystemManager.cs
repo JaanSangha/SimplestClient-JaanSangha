@@ -235,21 +235,21 @@ public class GameSystemManager : MonoBehaviour
     {
         ChatBoxOne.text = ChatBoxTwo.text;
         ChatBoxTwo.text = ChatBoxThree.text;
-        ChatBoxThree.text = ("Player: Good Game!");
+        ChatBoxThree.text = ("Player: Good Luck!");
     }
 
     public void QuickChatTwoObserver()
     {
         ChatBoxOne.text = ChatBoxTwo.text;
         ChatBoxTwo.text = ChatBoxThree.text;
-        ChatBoxThree.text = ("Player: Good Game!");
+        ChatBoxThree.text = ("Player: Close One!");
     }
 
     public void QuickChatThreeObserver()
     {
         ChatBoxOne.text = ChatBoxTwo.text;
         ChatBoxTwo.text = ChatBoxThree.text;
-        ChatBoxThree.text = ("Player: Good Game!");
+        ChatBoxThree.text = ("Player: Oh No!");
     }
     public void QuickChatFourObserver()
     {
