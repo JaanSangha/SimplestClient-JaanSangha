@@ -136,7 +136,6 @@ public class GameSystemManager : MonoBehaviour
         SubmitButton.SetActive(false);
         LoginToggle.SetActive(false);
         CreateToggle.SetActive(false);
-        TicTacToeSquareULButton.SetActive(false);
         GameScreen.SetActive(false);
         ObserverText.SetActive(false);
 
@@ -166,7 +165,6 @@ public class GameSystemManager : MonoBehaviour
         }
         else if (newState == gameStates.GameObserver)
         {
-            //set tictactoe game stuffs
             GameScreen.SetActive(true);
             ObserverText.SetActive(true);
         }
@@ -231,6 +229,33 @@ public class GameSystemManager : MonoBehaviour
         ChatBoxOne.text = ChatBoxTwo.text;
         ChatBoxTwo.text = ChatBoxThree.text;
         ChatBoxThree.text = ("You: Good Game!");
+    }
+
+    public void QuickChatOneObserver()
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("Player: Good Game!");
+    }
+
+    public void QuickChatTwoObserver()
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("Player: Good Game!");
+    }
+
+    public void QuickChatThreeObserver()
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("Player: Good Game!");
+    }
+    public void QuickChatFourObserver()
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("Player: Good Game!");
     }
 }
 

@@ -185,6 +185,22 @@ public class NetworkedClient : MonoBehaviour
         {
             gameSystemManager.GetComponent<GameSystemManager>().QuickChatFourSent();
         }
+        else if (Signifier == ServerToClientSignifier.QuickChatOneObserver)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().QuickChatOneObserver();
+        }
+        else if (Signifier == ServerToClientSignifier.QuickChatTwoObserver)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().QuickChatTwoObserver();
+        }
+        else if (Signifier == ServerToClientSignifier.QuickChatThreeObserver)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().QuickChatThreeObserver();
+        }
+        else if (Signifier == ServerToClientSignifier.QuickChatFourObserver)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().QuickChatFourObserver();
+        }
     }
 
     public bool IsConnected()
@@ -221,4 +237,8 @@ public static class ServerToClientSignifier
     public const int QuickChatThreeSent = 13;
     public const int QuickChatFourSent = 14;
     public const int ObserveStart = 15;
+    public const int QuickChatOneObserver = 16;
+    public const int QuickChatTwoObserver = 17;
+    public const int QuickChatThreeObserver = 18;
+    public const int QuickChatFourObserver = 19;
 }
