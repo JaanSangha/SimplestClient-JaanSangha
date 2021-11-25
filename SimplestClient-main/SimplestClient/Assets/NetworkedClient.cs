@@ -16,6 +16,7 @@ public class NetworkedClient : MonoBehaviour
     byte error;
     bool isConnected = false;
     int ourClientID;
+    public string Username;
 
     GameObject gameSystemManager;
 
@@ -36,19 +37,19 @@ public class NetworkedClient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SendMessageToHost(ClientToServerSignifier.QuickChatOne + "");
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             SendMessageToHost(ClientToServerSignifier.QuickChatTwo + "");
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             SendMessageToHost(ClientToServerSignifier.QuickChatThree + "");
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             SendMessageToHost(ClientToServerSignifier.QuickChatFour + "");
         }
@@ -201,6 +202,18 @@ public class NetworkedClient : MonoBehaviour
         {
             gameSystemManager.GetComponent<GameSystemManager>().QuickChatFourObserver();
         }
+        else if (Signifier == ServerToClientSignifier.MessageRecieved)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().MessageRecieved(csv[1]);
+        }
+        else if (Signifier == ServerToClientSignifier.MessageSent)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().MessageSent(csv[1]);
+        }
+        else if (Signifier == ServerToClientSignifier.MessageObserver)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().MessageObserver(csv[1]);
+        }
     }
 
     public bool IsConnected()
@@ -219,6 +232,7 @@ public static class ClientToServerSignifier
     public const int QuickChatThree = 7;
     public const int QuickChatFour = 8;
     public const int JoinQueueToObserve = 9;
+    public const int MessageSent = 10;
 }
 public static class ServerToClientSignifier
 {
@@ -241,4 +255,7 @@ public static class ServerToClientSignifier
     public const int QuickChatTwoObserver = 17;
     public const int QuickChatThreeObserver = 18;
     public const int QuickChatFourObserver = 19;
+    public const int MessageRecieved = 20;
+    public const int MessageSent = 21;
+    public const int MessageObserver = 21;
 }

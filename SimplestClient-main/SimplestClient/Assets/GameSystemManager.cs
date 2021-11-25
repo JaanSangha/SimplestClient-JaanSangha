@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameSystemManager : MonoBehaviour
 {
-    GameObject UsernameInputField, PasswordInputField, UsernameText, PasswordText, SubmitButton, LoginToggle, CreateToggle, GameScreen, ObserverText;
+    GameObject UsernameInputField, PasswordInputField, UsernameText, PasswordText, SubmitButton, LoginToggle, CreateToggle, GameScreen, ObserverText, CustomMessageInput, SendMessageButton;
     GameObject NetworkedClient;
     GameObject JoinGameRoomButton;
     GameObject TicTacToeSquareULButton;
@@ -68,6 +68,14 @@ public class GameSystemManager : MonoBehaviour
             {
                 ObserverText = go;
             }
+            else if (go.name == "CustomMessageInput")
+            {
+                CustomMessageInput = go;
+            }
+            else if (go.name == "SendMessageButton")
+            {
+                SendMessageButton = go;
+            }
         }
         Text[] allTexts = UnityEngine.Object.FindObjectsOfType<Text>();
         foreach (Text go in allTexts)
@@ -91,6 +99,7 @@ public class GameSystemManager : MonoBehaviour
         CreateToggle.GetComponent<Toggle>().onValueChanged.AddListener(CreateToggleChanged);
         JoinGameRoomButton.GetComponent<Button>().onClick.AddListener(JoinGameRoomButtonPressed);
         TicTacToeSquareULButton.GetComponent<Button>().onClick.AddListener(TicTacToeSquareButtonPressed);
+        SendMessageButton.GetComponent<Button>().onClick.AddListener(SendMessageButtonPressed);
 
         ChangeState(gameStates.LoginMenu);
     }
@@ -170,6 +179,13 @@ public class GameSystemManager : MonoBehaviour
         }
     }
 
+    public void SendMessageButtonPressed()
+    {
+        string txt = CustomMessageInput.GetComponent<InputField>().text;
+        string msg;
+        msg = ClientToServerSignifier.MessageSent + "," + NetworkedClient.GetComponent<NetworkedClient>().Username + "," + txt;
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(msg);
+    }
     public void JoinGameRoomButtonPressed()
     {
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.JoinQueueForGame + "");
@@ -256,6 +272,27 @@ public class GameSystemManager : MonoBehaviour
         ChatBoxOne.text = ChatBoxTwo.text;
         ChatBoxTwo.text = ChatBoxThree.text;
         ChatBoxThree.text = ("Player: Good Game!");
+    }
+
+    public void MessageRecieved(string txt)
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("Opponent: " + txt);
+    }
+
+    public void MessageSent(string txt)
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("You: " + txt);
+    }
+
+    public void MessageObserver(string txt)
+    {
+        ChatBoxOne.text = ChatBoxTwo.text;
+        ChatBoxTwo.text = ChatBoxThree.text;
+        ChatBoxThree.text = ("Player: " + txt);
     }
 }
 
