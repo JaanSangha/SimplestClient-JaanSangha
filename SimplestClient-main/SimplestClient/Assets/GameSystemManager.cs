@@ -141,7 +141,7 @@ public class GameSystemManager : MonoBehaviour
         LoginToggle.GetComponent<Toggle>().onValueChanged.AddListener(LoginToggleChanged);
         CreateToggle.GetComponent<Toggle>().onValueChanged.AddListener(CreateToggleChanged);
         JoinGameRoomButton.GetComponent<Button>().onClick.AddListener(JoinGameRoomButtonPressed);
-        TicTacToeSquareULButton.GetComponent<Button>().onClick.AddListener(TicTacToeSquareButtonPressed);
+       // TicTacToeSquareULButton.GetComponent<Button>().onClick.AddListener(TicTacToeSquareButtonPressed);
         SendMessageButton.GetComponent<Button>().onClick.AddListener(SendMessageButtonPressed);
         Button0.GetComponent<Button>().onClick.AddListener(SlotZeroButtonPressed);
         Button1.GetComponent<Button>().onClick.AddListener(SlotOneButtonPressed);
@@ -190,7 +190,6 @@ public class GameSystemManager : MonoBehaviour
     public void ChangeState(int newState)
     {
         JoinGameRoomButton.SetActive(false);
-
         UsernameInputField.SetActive(false);
         PasswordInputField.SetActive(false);
         UsernameText.SetActive(false);
