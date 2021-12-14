@@ -214,6 +214,78 @@ public class NetworkedClient : MonoBehaviour
         {
             gameSystemManager.GetComponent<GameSystemManager>().MessageObserver(csv[1]);
         }
+        else if (Signifier == ServerToClientSignifier.SlotZeroX)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotZeroButtonX();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotZeroO)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotZeroButtonO();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotOneX)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotOneButtonX();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotOneO)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotOneButtonO();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotTwoX)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotTwoButtonX();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotTwoO)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotTwoButtonO();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotThreeX)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotThreeButtonX();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotThreeO)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotThreeButtonO();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotFourX)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotFourButtonX();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotFourO)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotFourButtonO();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotFiveX)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotFiveButtonX();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotFiveO)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotFiveButtonO();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotSixX)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotSixButtonX();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotSixO)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotSixButtonO();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotSevenX)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotSevenButtonX();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotSevenO)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotSevenButtonO();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotEightX)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotEightButtonX();
+        }
+        else if (Signifier == ServerToClientSignifier.SlotEightO)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotEightButtonO();
+        }
     }
 
     public bool IsConnected()
@@ -233,6 +305,16 @@ public static class ClientToServerSignifier
     public const int QuickChatFour = 8;
     public const int JoinQueueToObserve = 9;
     public const int MessageSent = 10;
+    public const int SendButtonZero = 11;
+    public const int SendButtonOne = 12;
+    public const int SendButtonTwo = 13;
+    public const int SendButtonThree = 14;
+    public const int SendButtonFour = 15;
+    public const int SendButtonFive = 16;
+    public const int SendButtonSix = 17;
+    public const int SendButtonSeven = 18;
+    public const int SendButtonEight = 19;
+
 }
 public static class ServerToClientSignifier
 {
@@ -257,5 +339,23 @@ public static class ServerToClientSignifier
     public const int QuickChatFourObserver = 19;
     public const int MessageRecieved = 20;
     public const int MessageSent = 21;
-    public const int MessageObserver = 21;
+    public const int MessageObserver = 22;
+    public const int SlotZeroX = 23;
+    public const int SlotZeroO = 24;
+    public const int SlotOneX = 25;
+    public const int SlotOneO = 26;
+    public const int SlotTwoX = 27;
+    public const int SlotTwoO = 28;
+    public const int SlotThreeX = 29;
+    public const int SlotThreeO = 30;
+    public const int SlotFourX = 31;
+    public const int SlotFourO = 32;
+    public const int SlotFiveX = 33;
+    public const int SlotFiveO = 34;
+    public const int SlotSixX = 35;
+    public const int SlotSixO = 36;
+    public const int SlotSevenX = 37;
+    public const int SlotSevenO = 38;
+    public const int SlotEightX = 39;
+    public const int SlotEightO = 40;
 }
