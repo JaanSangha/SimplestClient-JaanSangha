@@ -221,7 +221,7 @@ public class GameSystemManager : MonoBehaviour
         else if (newState == gameStates.TicTacToe)
         {
             //set tictactoe game stuffs
-            TicTacToeSquareULButton.SetActive(true);
+            //TicTacToeSquareULButton.SetActive(true);
             GameScreen.SetActive(true);
         }
         else if (newState == gameStates.GameObserver)
