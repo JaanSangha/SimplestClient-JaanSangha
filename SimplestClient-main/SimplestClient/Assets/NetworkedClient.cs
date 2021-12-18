@@ -214,79 +214,50 @@ public class NetworkedClient : MonoBehaviour
         {
             gameSystemManager.GetComponent<GameSystemManager>().MessageObserver(csv[1]);
         }
-        else if (Signifier == ServerToClientSignifier.SlotZeroX)
+        else if (Signifier == ServerToClientSignifier.SlotZero)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotZeroButtonX(int.Parse(csv[1]));
+            gameSystemManager.GetComponent<GameSystemManager>().SlotZeroButton(int.Parse(csv[1]));
             Debug.Log(int.Parse(csv[1]));
         }
-        else if (Signifier == ServerToClientSignifier.SlotZeroO)
+        else if (Signifier == ServerToClientSignifier.SlotOne)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotZeroButtonO();
-        }
-        else if (Signifier == ServerToClientSignifier.SlotOneX)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotZeroButtonX(int.Parse(csv[1]));
+            gameSystemManager.GetComponent<GameSystemManager>().SlotOneButton(int.Parse(csv[1]));
             Debug.Log(int.Parse(csv[1]));
         }
-        else if (Signifier == ServerToClientSignifier.SlotOneO)
+        else if (Signifier == ServerToClientSignifier.SlotTwo)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotOneButtonO();
+            gameSystemManager.GetComponent<GameSystemManager>().SlotTwoButton(int.Parse(csv[1]));
+            Debug.Log(int.Parse(csv[1]));
         }
-        else if (Signifier == ServerToClientSignifier.SlotTwoX)
+        else if (Signifier == ServerToClientSignifier.SlotThree)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotTwoButtonX();
+            gameSystemManager.GetComponent<GameSystemManager>().SlotThreeButton(int.Parse(csv[1]));
+            Debug.Log(int.Parse(csv[1]));
         }
-        else if (Signifier == ServerToClientSignifier.SlotTwoO)
+        else if (Signifier == ServerToClientSignifier.SlotFour)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotTwoButtonO();
+            gameSystemManager.GetComponent<GameSystemManager>().SlotFourButton(int.Parse(csv[1]));
+            Debug.Log(int.Parse(csv[1]));
         }
-        else if (Signifier == ServerToClientSignifier.SlotThreeX)
+        else if (Signifier == ServerToClientSignifier.SlotFive)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotThreeButtonX();
+            gameSystemManager.GetComponent<GameSystemManager>().SlotFiveButton(int.Parse(csv[1]));
+            Debug.Log(int.Parse(csv[1]));
         }
-        else if (Signifier == ServerToClientSignifier.SlotThreeO)
+        else if (Signifier == ServerToClientSignifier.SlotSix)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotThreeButtonO();
+            gameSystemManager.GetComponent<GameSystemManager>().SlotSixButton(int.Parse(csv[1]));
+            Debug.Log(int.Parse(csv[1]));
         }
-        else if (Signifier == ServerToClientSignifier.SlotFourX)
+        else if (Signifier == ServerToClientSignifier.SlotSeven)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotFourButtonX();
+            gameSystemManager.GetComponent<GameSystemManager>().SlotSevenButton(int.Parse(csv[1]));
+            Debug.Log(int.Parse(csv[1]));
         }
-        else if (Signifier == ServerToClientSignifier.SlotFourO)
+        else if (Signifier == ServerToClientSignifier.SlotEight)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotFourButtonO();
-        }
-        else if (Signifier == ServerToClientSignifier.SlotFiveX)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotFiveButtonX();
-        }
-        else if (Signifier == ServerToClientSignifier.SlotFiveO)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotFiveButtonO();
-        }
-        else if (Signifier == ServerToClientSignifier.SlotSixX)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotSixButtonX();
-        }
-        else if (Signifier == ServerToClientSignifier.SlotSixO)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotSixButtonO();
-        }
-        else if (Signifier == ServerToClientSignifier.SlotSevenX)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotSevenButtonX();
-        }
-        else if (Signifier == ServerToClientSignifier.SlotSevenO)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotSevenButtonO();
-        }
-        else if (Signifier == ServerToClientSignifier.SlotEightX)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotEightButtonX();
-        }
-        else if (Signifier == ServerToClientSignifier.SlotEightO)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotEightButtonO();
+            gameSystemManager.GetComponent<GameSystemManager>().SlotEightButton(int.Parse(csv[1]));
+            Debug.Log(int.Parse(csv[1]));
         }
     }
 
@@ -342,22 +313,13 @@ public static class ServerToClientSignifier
     public const int MessageRecieved = 20;
     public const int MessageSent = 21;
     public const int MessageObserver = 22;
-    public const int SlotZeroX = 23;
-    public const int SlotZeroO = 24;
-    public const int SlotOneX = 25;
-    public const int SlotOneO = 26;
-    public const int SlotTwoX = 27;
-    public const int SlotTwoO = 28;
-    public const int SlotThreeX = 29;
-    public const int SlotThreeO = 30;
-    public const int SlotFourX = 31;
-    public const int SlotFourO = 32;
-    public const int SlotFiveX = 33;
-    public const int SlotFiveO = 34;
-    public const int SlotSixX = 35;
-    public const int SlotSixO = 36;
-    public const int SlotSevenX = 37;
-    public const int SlotSevenO = 38;
-    public const int SlotEightX = 39;
-    public const int SlotEightO = 40;
+    public const int SlotZero = 23;
+    public const int SlotOne = 24;
+    public const int SlotTwo = 25;
+    public const int SlotThree = 26;
+    public const int SlotFour = 27;
+    public const int SlotFive = 28;
+    public const int SlotSix = 29;
+    public const int SlotSeven = 30;
+    public const int SlotEight = 31;
 }
