@@ -10,10 +10,12 @@ public class GameSystemManager : MonoBehaviour
     GameObject JoinGameRoomButton;
     GameObject TicTacToeSquareULButton;
     Button Button0, Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8;
-    List<Button> buttonList;
+    public Button ReplayButton;
+    List<int> buttonList;
     Text ChatBoxOne, ChatBoxTwo, ChatBoxThree;
     public Sprite X, O;
     public Button[] allButtons;
+    bool replayed = false;
     // static GameObject instance;
 
     // Start is called before the first frame update
@@ -80,6 +82,7 @@ public class GameSystemManager : MonoBehaviour
             {
                 SendMessageButton = go;
             }
+
         }
         Text[] allTexts = UnityEngine.Object.FindObjectsOfType<Text>();
         foreach (Text go in allTexts)
@@ -139,11 +142,15 @@ public class GameSystemManager : MonoBehaviour
             }
         }
 
-         SubmitButton.GetComponent<Button>().onClick.AddListener(SubmitButtonPressed);
+
+
+        SubmitButton.GetComponent<Button>().onClick.AddListener(SubmitButtonPressed);
         LoginToggle.GetComponent<Toggle>().onValueChanged.AddListener(LoginToggleChanged);
         CreateToggle.GetComponent<Toggle>().onValueChanged.AddListener(CreateToggleChanged);
         JoinGameRoomButton.GetComponent<Button>().onClick.AddListener(JoinGameRoomButtonPressed);
         SendMessageButton.GetComponent<Button>().onClick.AddListener(SendMessageButtonPressed);
+        ReplayButton.GetComponent<Button>().onClick.AddListener(ReplayButtonPressed);
+
         Button0.GetComponent<Button>().onClick.AddListener(SlotZeroButtonPressed);
         Button1.GetComponent<Button>().onClick.AddListener(SlotOneButtonPressed);
         Button2.GetComponent<Button>().onClick.AddListener(SlotTwoButtonPressed);
@@ -179,6 +186,41 @@ public class GameSystemManager : MonoBehaviour
         }
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(msg);
     }
+
+    public void PlayReplay()
+    {
+
+    }
+    public void ReplayButtonPressed()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            allButtons[i].image.sprite = null;
+        }
+        //for (int i = 0; i < 9; i++)
+        //{
+        //    buttonList.Add(-1);
+        //}
+        //for (int i = 0; i < 9; i++)
+        //{
+
+        //    if (allButtons[i].image.sprite == O)
+        //    {
+        //        buttonList[i] = 0;
+        //    }
+        //    else if (allButtons[i].image.sprite == X)
+        //    {
+        //        buttonList[i] = 1;
+        //    }
+        //}
+        //foreach (Button button in allButtons)
+        //{
+        //    button.image.sprite = null;
+        //}
+        //replayed = true;
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.ReplayButton + "");
+    }
+
     public void LoginToggleChanged(bool changed)
     {
         CreateToggle.GetComponent<Toggle>().SetIsOnWithoutNotify(!changed);

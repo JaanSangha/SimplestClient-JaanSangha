@@ -218,6 +218,11 @@ public class NetworkedClient : MonoBehaviour
         {
             gameSystemManager.GetComponent<GameSystemManager>().SlotButtonPressed(int.Parse(csv[1]), int.Parse(csv[2]));
         }
+        else if (Signifier == ServerToClientSignifier.PlayReplay)
+        {
+            //gameSystemManager.GetComponent<GameSystemManager>().PlayReplay(int.Parse(csv[1]));
+            Debug.Log("replay: " + int.Parse(csv[1]));
+        }
     }
 
     public bool IsConnected()
@@ -238,7 +243,7 @@ public static class ClientToServerSignifier
     public const int JoinQueueToObserve = 9;
     public const int MessageSent = 10;
     public const int SendButton = 11;
-
+    public const int ReplayButton = 12;
 }
 public static class ServerToClientSignifier
 {
@@ -265,4 +270,5 @@ public static class ServerToClientSignifier
     public const int MessageSent = 21;
     public const int MessageObserver = 22;
     public const int SlotRecieved = 23;
+    public const int PlayReplay = 24;
 }
