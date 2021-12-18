@@ -10,8 +10,10 @@ public class GameSystemManager : MonoBehaviour
     GameObject JoinGameRoomButton;
     GameObject TicTacToeSquareULButton;
     Button Button0, Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8;
+    List<Button> buttonList;
     Text ChatBoxOne, ChatBoxTwo, ChatBoxThree;
     public Sprite X, O;
+    Button[] allButtons;
     // static GameObject instance;
 
     // Start is called before the first frame update
@@ -96,7 +98,7 @@ public class GameSystemManager : MonoBehaviour
             }
         }
 
-        Button[] allButtons = UnityEngine.Object.FindObjectsOfType<Button>();
+        allButtons = UnityEngine.Object.FindObjectsOfType<Button>();
         foreach (Button go in allButtons)
         {
             if (go.name == "Button0")
@@ -137,11 +139,10 @@ public class GameSystemManager : MonoBehaviour
             }
         }
 
-            SubmitButton.GetComponent<Button>().onClick.AddListener(SubmitButtonPressed);
+         SubmitButton.GetComponent<Button>().onClick.AddListener(SubmitButtonPressed);
         LoginToggle.GetComponent<Toggle>().onValueChanged.AddListener(LoginToggleChanged);
         CreateToggle.GetComponent<Toggle>().onValueChanged.AddListener(CreateToggleChanged);
         JoinGameRoomButton.GetComponent<Button>().onClick.AddListener(JoinGameRoomButtonPressed);
-       // TicTacToeSquareULButton.GetComponent<Button>().onClick.AddListener(TicTacToeSquareButtonPressed);
         SendMessageButton.GetComponent<Button>().onClick.AddListener(SendMessageButtonPressed);
         Button0.GetComponent<Button>().onClick.AddListener(SlotZeroButtonPressed);
         Button1.GetComponent<Button>().onClick.AddListener(SlotOneButtonPressed);
@@ -349,39 +350,39 @@ public class GameSystemManager : MonoBehaviour
 
     public void SlotZeroButtonPressed()
     {
-        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButtonZero + "");
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 0 + ",");
     }
     public void SlotOneButtonPressed()
     {
-        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButtonOne + "");
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 1 + ",");
     }
     public void SlotTwoButtonPressed()
     {
-        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButtonTwo + "");
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 2 + ",");
     }
     public void SlotThreeButtonPressed()
     {
-        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButtonThree + "");
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 3 + ",");
     }
     public void SlotFourButtonPressed()
     {
-        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButtonFour + "");
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 4 + ",");
     }
     public void SlotFiveButtonPressed()
     {
-        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButtonFive + "");
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 5 + ",");
     }
     public void SlotSixButtonPressed()
     {
-        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButtonSix + "");
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 6 + ",");
     }
     public void SlotSevenButtonPressed()
     {
-        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButtonSeven + "");
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 7 + ",");
     }
     public void SlotEightButtonPressed()
     {
-        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButtonEight + "");
+        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 8 + ",");
     }
 
 
@@ -445,7 +446,6 @@ public class GameSystemManager : MonoBehaviour
 
     }
 
-
     public void SlotFourButton(int player)
     {
         if (Button4.image.sprite == null)
@@ -460,8 +460,6 @@ public class GameSystemManager : MonoBehaviour
             }
         }
     }
-
-    
 
     public void SlotFiveButton(int player)
     {
@@ -523,6 +521,20 @@ public class GameSystemManager : MonoBehaviour
         }
     }
 
+    public void SlotButtonPressed(int player, int index)
+    {
+        if (allButtons[index].image.sprite == null)
+        {
+            if (player == 1)
+            {
+                allButtons[index].image.sprite = X;
+            }
+            else if (player == 2)
+            {
+                allButtons[index].image.sprite = O;
+            }
+        }
+    }
 }
 
 static public class gameStates

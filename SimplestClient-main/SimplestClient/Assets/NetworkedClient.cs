@@ -217,47 +217,42 @@ public class NetworkedClient : MonoBehaviour
         else if (Signifier == ServerToClientSignifier.SlotZero)
         {
             gameSystemManager.GetComponent<GameSystemManager>().SlotZeroButton(int.Parse(csv[1]));
-            Debug.Log(int.Parse(csv[1]));
         }
         else if (Signifier == ServerToClientSignifier.SlotOne)
         {
             gameSystemManager.GetComponent<GameSystemManager>().SlotOneButton(int.Parse(csv[1]));
-            Debug.Log(int.Parse(csv[1]));
         }
         else if (Signifier == ServerToClientSignifier.SlotTwo)
         {
             gameSystemManager.GetComponent<GameSystemManager>().SlotTwoButton(int.Parse(csv[1]));
-            Debug.Log(int.Parse(csv[1]));
         }
         else if (Signifier == ServerToClientSignifier.SlotThree)
         {
             gameSystemManager.GetComponent<GameSystemManager>().SlotThreeButton(int.Parse(csv[1]));
-            Debug.Log(int.Parse(csv[1]));
         }
         else if (Signifier == ServerToClientSignifier.SlotFour)
         {
             gameSystemManager.GetComponent<GameSystemManager>().SlotFourButton(int.Parse(csv[1]));
-            Debug.Log(int.Parse(csv[1]));
         }
         else if (Signifier == ServerToClientSignifier.SlotFive)
         {
             gameSystemManager.GetComponent<GameSystemManager>().SlotFiveButton(int.Parse(csv[1]));
-            Debug.Log(int.Parse(csv[1]));
         }
         else if (Signifier == ServerToClientSignifier.SlotSix)
         {
             gameSystemManager.GetComponent<GameSystemManager>().SlotSixButton(int.Parse(csv[1]));
-            Debug.Log(int.Parse(csv[1]));
         }
         else if (Signifier == ServerToClientSignifier.SlotSeven)
         {
             gameSystemManager.GetComponent<GameSystemManager>().SlotSevenButton(int.Parse(csv[1]));
-            Debug.Log(int.Parse(csv[1]));
         }
         else if (Signifier == ServerToClientSignifier.SlotEight)
         {
             gameSystemManager.GetComponent<GameSystemManager>().SlotEightButton(int.Parse(csv[1]));
-            Debug.Log(int.Parse(csv[1]));
+        }
+        else if (Signifier == ServerToClientSignifier.SlotRecieved)
+        {
+            gameSystemManager.GetComponent<GameSystemManager>().SlotEightButton(int.Parse(csv[1]));
         }
     }
 
@@ -287,6 +282,7 @@ public static class ClientToServerSignifier
     public const int SendButtonSix = 17;
     public const int SendButtonSeven = 18;
     public const int SendButtonEight = 19;
+    public const int SendButton = 20;
 
 }
 public static class ServerToClientSignifier
@@ -322,4 +318,5 @@ public static class ServerToClientSignifier
     public const int SlotSix = 29;
     public const int SlotSeven = 30;
     public const int SlotEight = 31;
+    public const int SlotRecieved = 32;
 }
