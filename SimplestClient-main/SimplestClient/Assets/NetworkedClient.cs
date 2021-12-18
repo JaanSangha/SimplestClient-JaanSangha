@@ -252,7 +252,8 @@ public class NetworkedClient : MonoBehaviour
         }
         else if (Signifier == ServerToClientSignifier.SlotRecieved)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotEightButton(int.Parse(csv[1]));
+            gameSystemManager.GetComponent<GameSystemManager>().SlotButtonPressed(int.Parse(csv[1]), int.Parse(csv[2]));
+            Debug.Log("player: " + int.Parse(csv[1]) + "Slot: " + int.Parse(csv[2]));
         }
     }
 

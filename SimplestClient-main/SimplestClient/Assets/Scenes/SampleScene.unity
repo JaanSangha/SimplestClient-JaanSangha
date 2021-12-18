@@ -1380,7 +1380,7 @@ GameObject:
   - component: {fileID: 456179609}
   - component: {fileID: 456179608}
   m_Layer: 5
-  m_Name: Button8
+  m_Name: Button6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1399,7 +1399,7 @@ RectTransform:
   m_Children:
   - {fileID: 379757298}
   m_Father: {fileID: 1610132433}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3291,7 +3291,7 @@ GameObject:
   - component: {fileID: 909242325}
   - component: {fileID: 909242324}
   m_Layer: 5
-  m_Name: Button6
+  m_Name: Button8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3310,7 +3310,7 @@ RectTransform:
   m_Children:
   - {fileID: 1054907467}
   m_Father: {fileID: 1610132433}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4149,7 +4149,7 @@ GameObject:
   - component: {fileID: 1133438403}
   - component: {fileID: 1133438402}
   m_Layer: 5
-  m_Name: Button5
+  m_Name: Button3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4168,7 +4168,7 @@ RectTransform:
   m_Children:
   - {fileID: 2074882629}
   m_Father: {fileID: 1610132433}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4761,7 +4761,7 @@ GameObject:
   - component: {fileID: 1468627567}
   - component: {fileID: 1468627566}
   m_Layer: 5
-  m_Name: Button3
+  m_Name: Button5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4780,7 +4780,7 @@ RectTransform:
   m_Children:
   - {fileID: 953545949}
   m_Father: {fileID: 1610132433}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5136,12 +5136,12 @@ RectTransform:
   - {fileID: 743387019}
   - {fileID: 492379059}
   - {fileID: 785107093}
-  - {fileID: 1468627565}
-  - {fileID: 402218150}
   - {fileID: 1133438401}
-  - {fileID: 909242323}
-  - {fileID: 166984194}
+  - {fileID: 402218150}
+  - {fileID: 1468627565}
   - {fileID: 456179607}
+  - {fileID: 166984194}
+  - {fileID: 909242323}
   - {fileID: 862410638}
   - {fileID: 972187569}
   - {fileID: 1137210559}
