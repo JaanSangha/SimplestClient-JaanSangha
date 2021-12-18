@@ -3430,6 +3430,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   X: {fileID: 21300000, guid: 09e345eb7eada4749ac60b82911d8c42, type: 3}
   O: {fileID: 21300000, guid: 7bfe8f68dabd5574da8375cb514b0491, type: 3}
+  allButtons:
+  - {fileID: 743387020}
+  - {fileID: 492379060}
+  - {fileID: 785107094}
+  - {fileID: 1133438402}
+  - {fileID: 402218151}
+  - {fileID: 1468627566}
+  - {fileID: 456179608}
+  - {fileID: 166984195}
+  - {fileID: 909242324}
 --- !u!4 &950607366
 Transform:
   m_ObjectHideFlags: 0

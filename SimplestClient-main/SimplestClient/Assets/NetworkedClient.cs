@@ -214,46 +214,9 @@ public class NetworkedClient : MonoBehaviour
         {
             gameSystemManager.GetComponent<GameSystemManager>().MessageObserver(csv[1]);
         }
-        else if (Signifier == ServerToClientSignifier.SlotZero)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotZeroButton(int.Parse(csv[1]));
-        }
-        else if (Signifier == ServerToClientSignifier.SlotOne)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotOneButton(int.Parse(csv[1]));
-        }
-        else if (Signifier == ServerToClientSignifier.SlotTwo)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotTwoButton(int.Parse(csv[1]));
-        }
-        else if (Signifier == ServerToClientSignifier.SlotThree)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotThreeButton(int.Parse(csv[1]));
-        }
-        else if (Signifier == ServerToClientSignifier.SlotFour)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotFourButton(int.Parse(csv[1]));
-        }
-        else if (Signifier == ServerToClientSignifier.SlotFive)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotFiveButton(int.Parse(csv[1]));
-        }
-        else if (Signifier == ServerToClientSignifier.SlotSix)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotSixButton(int.Parse(csv[1]));
-        }
-        else if (Signifier == ServerToClientSignifier.SlotSeven)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotSevenButton(int.Parse(csv[1]));
-        }
-        else if (Signifier == ServerToClientSignifier.SlotEight)
-        {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotEightButton(int.Parse(csv[1]));
-        }
         else if (Signifier == ServerToClientSignifier.SlotRecieved)
         {
             gameSystemManager.GetComponent<GameSystemManager>().SlotButtonPressed(int.Parse(csv[1]), int.Parse(csv[2]));
-            Debug.Log("player: " + int.Parse(csv[1]) + "Slot: " + int.Parse(csv[2]));
         }
     }
 
@@ -274,16 +237,7 @@ public static class ClientToServerSignifier
     public const int QuickChatFour = 8;
     public const int JoinQueueToObserve = 9;
     public const int MessageSent = 10;
-    public const int SendButtonZero = 11;
-    public const int SendButtonOne = 12;
-    public const int SendButtonTwo = 13;
-    public const int SendButtonThree = 14;
-    public const int SendButtonFour = 15;
-    public const int SendButtonFive = 16;
-    public const int SendButtonSix = 17;
-    public const int SendButtonSeven = 18;
-    public const int SendButtonEight = 19;
-    public const int SendButton = 20;
+    public const int SendButton = 11;
 
 }
 public static class ServerToClientSignifier
@@ -310,14 +264,5 @@ public static class ServerToClientSignifier
     public const int MessageRecieved = 20;
     public const int MessageSent = 21;
     public const int MessageObserver = 22;
-    public const int SlotZero = 23;
-    public const int SlotOne = 24;
-    public const int SlotTwo = 25;
-    public const int SlotThree = 26;
-    public const int SlotFour = 27;
-    public const int SlotFive = 28;
-    public const int SlotSix = 29;
-    public const int SlotSeven = 30;
-    public const int SlotEight = 31;
-    public const int SlotRecieved = 32;
+    public const int SlotRecieved = 23;
 }

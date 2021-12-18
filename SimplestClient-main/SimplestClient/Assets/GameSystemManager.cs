@@ -13,7 +13,7 @@ public class GameSystemManager : MonoBehaviour
     List<Button> buttonList;
     Text ChatBoxOne, ChatBoxTwo, ChatBoxThree;
     public Sprite X, O;
-    Button[] allButtons;
+    public Button[] allButtons;
     // static GameObject instance;
 
     // Start is called before the first frame update
@@ -98,7 +98,7 @@ public class GameSystemManager : MonoBehaviour
             }
         }
 
-        allButtons = UnityEngine.Object.FindObjectsOfType<Button>();
+        //allButtons = UnityEngine.Object.FindObjectsOfType<Button>();
         foreach (Button go in allButtons)
         {
             if (go.name == "Button0")
@@ -244,13 +244,6 @@ public class GameSystemManager : MonoBehaviour
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.JoinQueueForGame + "");
         ChangeState(gameStates.WaitingInQueueForOtherPlayer);
     }
-
-    public void TicTacToeSquareButtonPressed()
-    {
-        NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.TicTacToeSomethingPlay + "");
-        //ChangeState(gameStates.WaitingInQueueForOtherPlayer);
-    }
-
     public void QuickChatOneRecieved()
     {
         ChatBoxOne.text = ChatBoxTwo.text;
@@ -383,142 +376,6 @@ public class GameSystemManager : MonoBehaviour
     public void SlotEightButtonPressed()
     {
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 8 + ",");
-    }
-
-
-    public void SlotZeroButton(int player)
-    {
-        if (Button0.image.sprite == null)
-        {
-            if (player == 1)
-            {
-                Button0.image.sprite = X;
-            }
-            else if (player == 2)
-            {
-                Button0.image.sprite = O;
-            }
-        }
-    }
-
-    public void SlotOneButton(int player)
-    {
-        if (Button1.image.sprite == null)
-        {
-            if (player == 1)
-            {
-                Button1.image.sprite = X;
-            }
-            else if (player == 2)
-            {
-                Button1.image.sprite = O;
-            }
-        }
-    }
-    public void SlotTwoButton(int player)
-    {
-        if (Button2.image.sprite == null)
-        {
-            if (player == 1)
-            {
-                Button2.image.sprite = X;
-            }
-            else if (player == 2)
-            {
-                Button2.image.sprite = O;
-            }
-        }
-    }
-
-    public void SlotThreeButton(int player)
-    {
-        if (Button3.image.sprite == null)
-        {
-            if (player == 1)
-            {
-                Button3.image.sprite = X;
-            }
-            else if (player == 2)
-            {
-                Button3.image.sprite = O;
-            }
-        }
-
-    }
-
-    public void SlotFourButton(int player)
-    {
-        if (Button4.image.sprite == null)
-        {
-            if (player == 1)
-            {
-                Button4.image.sprite = X;
-            }
-            else if (player == 2)
-            {
-                Button4.image.sprite = O;
-            }
-        }
-    }
-
-    public void SlotFiveButton(int player)
-    {
-        if (Button5.image.sprite == null)
-        {
-            if (player == 1)
-            {
-                Button5.image.sprite = X;
-            }
-            else if (player == 2)
-            {
-                Button5.image.sprite = O;
-            }
-        }
-    }
-
-    public void SlotSixButton(int player)
-    {
-        if (Button6.image.sprite == null)
-        {
-            if (player == 1)
-            {
-                Button6.image.sprite = X;
-            }
-            else if (player == 2)
-            {
-                Button6.image.sprite = O;
-            }
-        }
-    }
-
-    public void SlotSevenButton(int player)
-    {
-        if (Button7.image.sprite == null)
-        {
-            if (player == 1)
-            {
-                Button7.image.sprite = X;
-            }
-            else if (player == 2)
-            {
-                Button7.image.sprite = O;
-            }
-        }
-    }
-
-    public void SlotEightButton(int player)
-    {
-        if (Button8.image.sprite == null)
-        {
-            if (player == 1)
-            {
-                Button8.image.sprite = X;
-            }
-            else if (player == 2)
-            {
-                Button8.image.sprite = O;
-            }
-        }
     }
 
     public void SlotButtonPressed(int player, int index)
