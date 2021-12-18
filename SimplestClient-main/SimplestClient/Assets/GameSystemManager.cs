@@ -404,10 +404,19 @@ public class GameSystemManager : MonoBehaviour
         if (Button0.image.sprite == null)
             Button0.image.sprite = O;
     }
-    public void SlotOneButtonX()
+    public void SlotOneButtonX(int player)
     {
-        if (Button1.image.sprite == null)
-            Button1.image.sprite = X;
+        if (Button0.image.sprite == null)
+        {
+            if (player == 1)
+            {
+                Button0.image.sprite = X;
+            }
+            else if (player == 2)
+            {
+                Button0.image.sprite = O;
+            }
+        }
     }
     public void SlotOneButtonO()
     {

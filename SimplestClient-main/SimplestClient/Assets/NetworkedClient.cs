@@ -217,6 +217,7 @@ public class NetworkedClient : MonoBehaviour
         else if (Signifier == ServerToClientSignifier.SlotZeroX)
         {
             gameSystemManager.GetComponent<GameSystemManager>().SlotZeroButtonX(int.Parse(csv[1]));
+            Debug.Log(int.Parse(csv[1]));
         }
         else if (Signifier == ServerToClientSignifier.SlotZeroO)
         {
@@ -224,7 +225,8 @@ public class NetworkedClient : MonoBehaviour
         }
         else if (Signifier == ServerToClientSignifier.SlotOneX)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotOneButtonX();
+            gameSystemManager.GetComponent<GameSystemManager>().SlotZeroButtonX(int.Parse(csv[1]));
+            Debug.Log(int.Parse(csv[1]));
         }
         else if (Signifier == ServerToClientSignifier.SlotOneO)
         {
