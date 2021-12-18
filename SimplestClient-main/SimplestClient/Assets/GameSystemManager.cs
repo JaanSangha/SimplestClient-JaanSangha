@@ -385,55 +385,56 @@ public class GameSystemManager : MonoBehaviour
     }
 
 
-    public void SlotZeroButtonX()
+    public void SlotZeroButtonX(int player)
     {
         if (Button0.image.sprite == null)
-            Button0.image.sprite = X;
-        //buttons.Add(Button0);
+        {
+            if (player == 1)
+            {
+                Button0.image.sprite = X;
+            }
+            else if (player == 2)
+            {
+                Button0.image.sprite = O;
+            }
+        }
     }
     public void SlotZeroButtonO()
     {
         if (Button0.image.sprite == null)
             Button0.image.sprite = O;
-       // buttons.Add(Button0);
     }
     public void SlotOneButtonX()
     {
         if (Button1.image.sprite == null)
             Button1.image.sprite = X;
-       // buttons.Add(Button9);
     }
     public void SlotOneButtonO()
     {
         if (Button1.image.sprite == null)
             Button1.image.sprite = O;
-       // buttons.Add(Button9);
     }
     public void SlotTwoButtonX()
     {
         if (Button2.image.sprite == null)
             Button2.image.sprite = X;
-       // buttons.Add(Button2);
     }
     public void SlotTwoButtonO()
     {
         if (Button2.image.sprite == null)
             Button2.image.sprite = O;
-        //buttons.Add(Button2);
     }
 
     public void SlotThreeButtonX()
     {
         if (Button3.image.sprite == null)
             Button3.image.sprite = X;
-       // buttons.Add(Button3);
 
     }
     public void SlotThreeButtonO()
     {
         if (Button3.image.sprite == null)
             Button3.image.sprite = O;
-        //buttons.Add(Button3);
 
     }
 
@@ -441,14 +442,12 @@ public class GameSystemManager : MonoBehaviour
     {
         if (Button4.image.sprite == null)
             Button4.image.sprite = X;
-       // buttons.Add(Button4);
 
     }
     public void SlotFourButtonO()
     {
         if (Button4.image.sprite == null)
             Button4.image.sprite = O;
-        //buttons.Add(Button4);
 
     }
 
@@ -456,14 +455,12 @@ public class GameSystemManager : MonoBehaviour
     {
         if (Button5.image.sprite == null)
             Button5.image.sprite = X;
-        //buttons.Add(Button5);
 
     }
     public void SlotFiveButtonO()
     {
         if (Button5.image.sprite == null)
             Button5.image.sprite = O;
-        //buttons.Add(Button5);
 
     }
 
@@ -471,14 +468,12 @@ public class GameSystemManager : MonoBehaviour
     {
         if (Button6.image.sprite == null)
             Button6.image.sprite = X;
-       // buttons.Add(Button6);
 
     }
     public void SlotSixButtonO()
     {
         if (Button6.image.sprite == null)
             Button6.image.sprite = O;
-        //buttons.Add(Button6);
 
     }
 
@@ -486,14 +481,12 @@ public class GameSystemManager : MonoBehaviour
     {
         if (Button7.image.sprite == null)
             Button7.image.sprite = X;
-        //buttons.Add(Button7);
 
     }
     public void SlotSevenButtonO()
     {
         if (Button7.image.sprite == null)
             Button7.image.sprite = O;
-        //buttons.Add(Button7);
 
     }
 
@@ -501,14 +494,12 @@ public class GameSystemManager : MonoBehaviour
     {
         if (Button8.image.sprite == null)
             Button8.image.sprite = X;
-        //buttons.Add(Button8);
 
     }
     public void SlotEightButtonO()
     {
         if (Button8.image.sprite == null)
             Button8.image.sprite = O;
-        //buttons.Add(Button8);
 
     }
 

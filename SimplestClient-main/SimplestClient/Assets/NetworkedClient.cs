@@ -216,7 +216,7 @@ public class NetworkedClient : MonoBehaviour
         }
         else if (Signifier == ServerToClientSignifier.SlotZeroX)
         {
-            gameSystemManager.GetComponent<GameSystemManager>().SlotZeroButtonX();
+            gameSystemManager.GetComponent<GameSystemManager>().SlotZeroButtonX(int.Parse(csv[1]));
         }
         else if (Signifier == ServerToClientSignifier.SlotZeroO)
         {
