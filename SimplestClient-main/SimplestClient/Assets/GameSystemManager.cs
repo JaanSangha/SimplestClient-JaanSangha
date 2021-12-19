@@ -69,10 +69,6 @@ public class GameSystemManager : MonoBehaviour
             {
                 JoinGameRoomButton = go;
             }
-            else if (go.name == "TicTacToeSquareULButton")
-            {
-                TicTacToeSquareULButton = go;
-            }
             else if (go.name == "GameScreen")
             {
                 GameScreen = go;
