@@ -8,7 +8,6 @@ public class GameSystemManager : MonoBehaviour
     GameObject UsernameInputField, PasswordInputField, UsernameText, PasswordText, SubmitButton, LoginToggle, CreateToggle, GameScreen, ObserverText, CustomMessageInput, SendMessageButton;
     GameObject NetworkedClient;
     GameObject JoinGameRoomButton;
-    GameObject TicTacToeSquareULButton;
     Button Button0, Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8;
     public Button ReplayButton;
     public List<int> temp;
@@ -18,7 +17,6 @@ public class GameSystemManager : MonoBehaviour
     public Sprite X, O;
     public Button[] allButtons;
     public int[] playerIndex;
-   // public int[] temp = new int[9];
     bool replayed = false;
     float count = 0f;
     float max = 30f;
@@ -110,7 +108,6 @@ public class GameSystemManager : MonoBehaviour
             }
         }
 
-        //allButtons = UnityEngine.Object.FindObjectsOfType<Button>();
         foreach (Button go in allButtons)
         {
             if (go.name == "Button0")
@@ -237,35 +234,9 @@ public class GameSystemManager : MonoBehaviour
         temp[slot] = playerID;
 
         replayed = true;
-        // Debug.Log(arrayNum);
-        //playerIndex.add
-        //buttonPicked.Add(slot);
-        //playerPicked.Add(playerID);
     }
     public void ReplayButtonPressed()
     {
-        
-        //for (int i = 0; i < 9; i++)
-        //{
-        //    buttonList.Add(-1);
-        //}
-        //for (int i = 0; i < 9; i++)
-        //{
-
-        //    if (allButtons[i].image.sprite == O)
-        //    {
-        //        buttonList[i] = 0;
-        //    }
-        //    else if (allButtons[i].image.sprite == X)
-        //    {
-        //        buttonList[i] = 1;
-        //    }
-        //}
-        //foreach (Button button in allButtons)
-        //{
-        //    button.image.sprite = null;
-        //}
-        //replayed = true;
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.ReplayButton + "");
     }
 
