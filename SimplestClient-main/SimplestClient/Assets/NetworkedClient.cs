@@ -17,6 +17,7 @@ public class NetworkedClient : MonoBehaviour
     bool isConnected = false;
     int ourClientID;
     public string Username;
+    int arrayIndex = 0;
 
     GameObject gameSystemManager;
 
@@ -221,7 +222,9 @@ public class NetworkedClient : MonoBehaviour
         else if (Signifier == ServerToClientSignifier.PlayReplay)
         {
             //gameSystemManager.GetComponent<GameSystemManager>().PlayReplay(int.Parse(csv[1]));
-            Debug.Log("replay: " + int.Parse(csv[1]));
+            gameSystemManager.GetComponent<GameSystemManager>().PlayReplay(int.Parse(csv[1]), int.Parse(csv[2]), arrayIndex);
+            arrayIndex++;
+            //Debug.Log("replay: " + int.Parse(csv[1]));
         }
     }
 

@@ -11,18 +11,26 @@ public class GameSystemManager : MonoBehaviour
     GameObject TicTacToeSquareULButton;
     Button Button0, Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8;
     public Button ReplayButton;
-    List<int> buttonList;
+    public List<int> temp;
+    List<int> moveOrder;
     Text ChatBoxOne, ChatBoxTwo, ChatBoxThree;
     public Sprite X, O;
     public Button[] allButtons;
+    public int[] playerIndex;
+   // public int[] temp = new int[9];
     bool replayed = false;
+    float count = 0f;
+    float max = 30f;
+    int index = 0;
+    int listIndex = 8;
     // static GameObject instance;
 
     // Start is called before the first frame update
     void Start()
     {
-       // instance = this.gameObject;
-
+        // instance = this.gameObject;
+        temp = new List<int>();
+        moveOrder = new List<int>();
         GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
         foreach (GameObject go in allObjects)
         {
@@ -142,8 +150,11 @@ public class GameSystemManager : MonoBehaviour
             }
         }
 
-
-
+        for (int i = 0; i <= 9; i++)
+        {
+            temp.Add(0);
+            moveOrder.Add(0);
+        }
         SubmitButton.GetComponent<Button>().onClick.AddListener(SubmitButtonPressed);
         LoginToggle.GetComponent<Toggle>().onValueChanged.AddListener(LoginToggleChanged);
         CreateToggle.GetComponent<Toggle>().onValueChanged.AddListener(CreateToggleChanged);
@@ -166,9 +177,37 @@ public class GameSystemManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (replayed)
+        {
+            count++;
+            if (count == max)
+            {
+                foreach (var x in moveOrder)
+                {
+                    Debug.Log(x.ToString());
+                }
 
+                if (temp[index] == 1)
+                {
+                    allButtons[index].image.sprite = X;
+
+                }
+                else if (temp[index] == 2)
+                {
+                    allButtons[index].image.sprite = O;
+
+                }
+                index++;
+                count = 0;
+                if (index >= 9)
+                {
+                    replayed = false;
+                    index = 0;
+                }
+            }
+        }
     }
     public void SubmitButtonPressed()
     {
@@ -187,16 +226,24 @@ public class GameSystemManager : MonoBehaviour
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(msg);
     }
 
-    public void PlayReplay()
+    public void PlayReplay(int playerID, int slot, int arrayNum)
     {
-
-    }
-    public void ReplayButtonPressed()
-    {
+        moveOrder.Add(slot);
         for (int i = 0; i < 9; i++)
         {
             allButtons[i].image.sprite = null;
         }
+        temp[slot] = playerID;
+
+        replayed = true;
+        // Debug.Log(arrayNum);
+        //playerIndex.add
+        //buttonPicked.Add(slot);
+        //playerPicked.Add(playerID);
+    }
+    public void ReplayButtonPressed()
+    {
+        
         //for (int i = 0; i < 9; i++)
         //{
         //    buttonList.Add(-1);
