@@ -12,6 +12,7 @@ public class GameSystemManager : MonoBehaviour
     Button Button0, Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8;
     public Button ReplayButton;
     public List<int> temp;
+    public List<Button> tempButtons;
     List<int> moveOrder;
     Text ChatBoxOne, ChatBoxTwo, ChatBoxThree;
     public Sprite X, O;
@@ -432,38 +433,47 @@ public class GameSystemManager : MonoBehaviour
 
     public void SlotZeroButtonPressed()
     {
+        tempButtons.Add(Button0);
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 0 + ",");
     }
     public void SlotOneButtonPressed()
     {
+        tempButtons.Add(Button1);
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 1 + ",");
     }
     public void SlotTwoButtonPressed()
     {
+        tempButtons.Add(Button2);
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 2 + ",");
     }
     public void SlotThreeButtonPressed()
     {
+        tempButtons.Add(Button3);
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 3 + ",");
     }
     public void SlotFourButtonPressed()
     {
+        tempButtons.Add(Button4);
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 4 + ",");
     }
     public void SlotFiveButtonPressed()
     {
+        tempButtons.Add(Button5);
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 5 + ",");
     }
     public void SlotSixButtonPressed()
     {
+        tempButtons.Add(Button6);
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 6 + ",");
     }
     public void SlotSevenButtonPressed()
     {
+        tempButtons.Add(Button7);
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 7 + ",");
     }
     public void SlotEightButtonPressed()
     {
+        tempButtons.Add(Button8);
         NetworkedClient.GetComponent<NetworkedClient>().SendMessageToHost(ClientToServerSignifier.SendButton + "," + 8 + ",");
     }
 
